@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Hard">
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/num1"
@@ -16,7 +15,7 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline1"
         app:layout_constraintHeight_percent="0.2"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2"/>
 
     <Button
         android:id="@+id/num2"
@@ -112,22 +111,22 @@
         android:id="@+id/reset"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginBottom="150dp"
         android:text="Reset"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/minusOpButton"
-        app:layout_constraintStart_toStartOf="@+id/plusOpButton"
-        app:layout_constraintTop_toBottomOf="@+id/impossible" />
+        app:layout_constraintStart_toStartOf="@+id/plusOpButton" />
 
     <Button
         android:id="@+id/skip"
-        android:layout_width="110dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginBottom="150dp"
         android:text="Skip"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/divisionOpButton"
         app:layout_constraintHorizontal_bias="0.294"
-        app:layout_constraintStart_toStartOf="@+id/multiplyOpButton"
-        app:layout_constraintTop_toBottomOf="@+id/impossible" />
+        app:layout_constraintStart_toStartOf="@+id/multiplyOpButton" />
 
     <TextView
         android:id="@+id/timeTV"
@@ -153,16 +152,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/impossible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Impossible"
-        app:layout_constraintEnd_toEndOf="@+id/divisionOpButton"
-        app:layout_constraintStart_toStartOf="@+id/plusOpButton"
-        app:layout_constraintTop_toBottomOf="@+id/minusOpButton" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"
         android:layout_width="wrap_content"
@@ -178,5 +167,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="0dp"
         app:layout_constraintGuide_percent="0.2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
