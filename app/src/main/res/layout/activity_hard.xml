@@ -8,20 +8,23 @@
 
     <Button
         android:id="@+id/num1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.25"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.14"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:text="99"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline1"
-        app:layout_constraintHeight_percent="0.2"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2"/>
 
     <Button
         android:id="@+id/num2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.25"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.14"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:text="99"
@@ -31,8 +34,10 @@
 
     <Button
         android:id="@+id/num3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.25"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.14"
         android:layout_marginTop="10dp"
         android:text="99"
         android:textSize="30sp"
@@ -42,92 +47,103 @@
 
     <Button
         android:id="@+id/num4"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:text="99"
         android:textSize="30sp"
         app:backgroundTint="@color/purple_500"
         app:layout_constraintEnd_toEndOf="@+id/num2"
+        app:layout_constraintHeight_percent="0.14"
         app:layout_constraintStart_toStartOf="@+id/num2"
-        app:layout_constraintTop_toBottomOf="@+id/num2" />
+        app:layout_constraintTop_toBottomOf="@+id/num2"
+        app:layout_constraintWidth_percent="0.25" />
 
     <Button
         android:id="@+id/plusOpButton"
-        android:layout_width="50dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:text="+"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/minusOpButton"
-        app:layout_constraintStart_toStartOf="@+id/num3" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintWidth_percent="0.12" />
 
     <Button
         android:id="@+id/minusOpButton"
-        android:layout_width="50dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:text="-"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/num3"
-        app:layout_constraintStart_toEndOf="@+id/plusOpButton" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintWidth_percent="0.12" />
 
     <Button
         android:id="@+id/multiplyOpButton"
-        android:layout_width="50dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
         android:text="*"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/divisionOpButton"
-        app:layout_constraintStart_toStartOf="@+id/num4" />
+        app:layout_constraintStart_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintWidth_percent="0.12" />
 
     <Button
         android:id="@+id/divisionOpButton"
-        android:layout_width="50dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
         android:text="/"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/num4"
-        app:layout_constraintStart_toEndOf="@+id/multiplyOpButton" />
+        app:layout_constraintStart_toEndOf="@+id/multiplyOpButton"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintWidth_percent="0.12" />
 
     <Button
         android:id="@+id/reset"
-        android:layout_width="110dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:text="Reset"
-        app:layout_constraintEnd_toEndOf="@+id/minusOpButton"
+        app:layout_constraintEnd_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/impossible"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <Button
+        android:id="@+id/impossible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Impossible"
+        app:layout_constraintEnd_toEndOf="@+id/divisionOpButton"
         app:layout_constraintStart_toStartOf="@+id/plusOpButton"
-        app:layout_constraintTop_toBottomOf="@+id/impossible" />
+        app:layout_constraintTop_toBottomOf="@+id/minusOpButton" />
 
     <Button
         android:id="@+id/skip"
-        android:layout_width="110dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
         android:text="Skip"
-        app:layout_constraintEnd_toEndOf="@+id/divisionOpButton"
-        app:layout_constraintHorizontal_bias="0.294"
-        app:layout_constraintStart_toStartOf="@+id/multiplyOpButton"
-        app:layout_constraintTop_toBottomOf="@+id/impossible" />
+        app:layout_constraintStart_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/impossible"
+        app:layout_constraintWidth_percent="0.25" />
 
     <TextView
         android:id="@+id/timeTV"
@@ -153,16 +169,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/impossible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Impossible"
-        app:layout_constraintEnd_toEndOf="@+id/divisionOpButton"
-        app:layout_constraintStart_toStartOf="@+id/plusOpButton"
-        app:layout_constraintTop_toBottomOf="@+id/minusOpButton" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"
         android:layout_width="wrap_content"
@@ -178,5 +184,23 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="0dp"
         app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="0dp"
+        app:layout_constraintGuide_percent="0.59" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="0dp"
+        app:layout_constraintGuide_percent="0.7" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

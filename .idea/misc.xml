@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Warrick He/Programming/24/app/src/main/res/layout/activity_finish_screen.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/Warrick He/Programming/24/app/src/main/res/layout/activity_standard.xml" value="0.136" />
+        <entry key="..\:/Users/Warrick He/Programming/24/app/src/main/res/layout/activity_finish_screen.xml" value="0.1" />
+        <entry key="..\:/Users/Warrick He/Programming/24/app/src/main/res/layout/activity_hard.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Warrick He/Programming/24/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Warrick He/Programming/24/app/src/main/res/layout/activity_practice.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Warrick He/Programming/24/app/src/main/res/layout/activity_select_screen.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Warrick He/Programming/24/app/src/main/res/layout/activity_standard.xml" value="0.1" />
         <entry key="..\:/Users/Warrick He/Programming/24/app/src/main/res/layout/activity_test.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Warrick He/Programming/24/app/src/main/res/layout/test_percent_standard.xml" value="0.13020833333333334" />
       </map>
