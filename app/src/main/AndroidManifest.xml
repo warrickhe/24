@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.1" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.l4ikaa.a24">
 
@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.24">
-        <activity android:name="com.l4ikaa.a24.Test"></activity>
-        <activity android:name="com.l4ikaa.a24.Hard" />
-        <activity android:name="com.l4ikaa.a24.FinishScreen" />
-        <activity android:name="com.l4ikaa.a24.Standard" />
-        <activity android:name="com.l4ikaa.a24.Practice" />
-        <activity android:name="com.l4ikaa.a24.SelectScreen" />
-        <activity android:name="com.l4ikaa.a24.MainActivity">
+        <activity android:name="warrick.l4ika.aaa24.Test"></activity>
+        <activity android:name="warrick.l4ika.aaa24.Hard" />
+        <activity android:name="warrick.l4ika.aaa24.FinishScreen" />
+        <activity android:name="warrick.l4ika.aaa24.Standard" />
+        <activity android:name="warrick.l4ika.aaa24.Practice" />
+        <activity android:name="warrick.l4ika.aaa24.SelectScreen" />
+        <activity android:name="warrick.l4ika.aaa24.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

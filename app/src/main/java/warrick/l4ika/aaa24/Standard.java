@@ -1,14 +1,21 @@
-package com.l4ikaa.a24;
+package warrick.l4ika.aaa24;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Practice extends AppCompatActivity {
+import com.l4ikaa.a24.R;
+
+public class Standard extends AppCompatActivity {
     private boolean numSelected = false;
     private boolean opSelected = false;
     private Button[] opButtons;
@@ -18,13 +25,20 @@ public class Practice extends AppCompatActivity {
     private int selectedOp = 0;
     private int selectedNum = 0;
     private int numVisible = 4;
+    private double score = 0;
     private int unselectedColor, selectedColor;
     private final Handler handler = new Handler();
+    private TextView timeText;
+    private TextView scoreText;
+    private CountDownTimer timer;
+    private double highScore;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_practice);
+        setContentView(R.layout.activity_standard);
         opButtons = new Button[4];
         numButtons = new Button[4];
         opButtons[0] = (Button) findViewById(R.id.plusOpButton);
@@ -91,6 +105,12 @@ public class Practice extends AppCompatActivity {
                 selectNum(3);
             }
         });
+        timeText = (TextView) findViewById(R.id.timeTV);
+        scoreText = (TextView) findViewById(R.id.scoreTV);
+        scoreText.setText("Score: "+score);
+        pref = this.getSharedPreferences("standardHighScore", Context.MODE_PRIVATE);
+        editor = pref.edit();
+
         Button resetButton = (Button) findViewById(R.id.reset);
         Button skipButton = (Button) findViewById(R.id.skip);
         resetButton.setOnClickListener(new View.OnClickListener(){
@@ -103,8 +123,35 @@ public class Practice extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 hardReset();
+                score-=0.5;
+                scoreText.setText("Score: "+score);
             }
         });
+        startTimer();
+    }
+
+    void startTimer() {
+        timer = new CountDownTimer(120000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                timeText.setText("Time: "+(int)(millisUntilFinished/1000));
+            }
+            public void onFinish() {
+                highScore = Math.max(score,pref.getFloat("standardHighScore", 0));
+                editor.putFloat("standardHighScore",(float)highScore);
+                editor.commit();
+                goFinishScreen();
+            }
+        };
+        timer.start();
+    }
+
+    public void goFinishScreen(){
+        Intent intent = new Intent(this, FinishScreen.class);
+        intent.putExtra("highScore",highScore+"");
+        intent.putExtra("score",score+"");
+        intent.putExtra("mode","Standard");
+        startActivity(intent);
+        finish();
     }
 
     private void selectOp(int i){
@@ -152,8 +199,10 @@ public class Practice extends AppCompatActivity {
                 } else if ( selectedOp == 2 ){
                     numbers[i] *= numbers[selectedNum];
                 } else if ( selectedOp == 3 ){
-                    if ( numbers[selectedNum]%numbers[i] != 0 )
+                    if ( numbers[selectedNum]%numbers[i] != 0 ) {
+                        opButtons[3].setBackgroundColor(selectedColor);
                         return;
+                    }
                     numbers[i] = numbers[selectedNum]/numbers[i];
                 }
                 numButtons[selectedNum].setVisibility(View.INVISIBLE);
@@ -161,10 +210,14 @@ public class Practice extends AppCompatActivity {
                 numButtons[i].setBackgroundColor(selectedColor);
                 numButtons[i].setText(""+numbers[i]);
                 if ( numVisible == 1 && numbers[i] == 24 ){
+                    score++;
                     handler.postDelayed(new Runnable() {
                         @Override
-                        public void run(){hardReset();}
+                        public void run(){
+                            hardReset();
+                        }
                     }, 500);
+                    scoreText.setText("Score: "+score);
                     return;
                 }
                 opSelected = false;
@@ -249,5 +302,15 @@ public class Practice extends AppCompatActivity {
         numButtons[1].setText(""+num2);
         numButtons[2].setText(""+num3);
         numButtons[3].setText(""+num4);
+    }
+    @Override
+    public void onBackPressed(){
+        finish();
+    }
+    @Override
+    public void onPause(){
+        timer.cancel();
+        finish();
+        super.onPause();
     }
 }

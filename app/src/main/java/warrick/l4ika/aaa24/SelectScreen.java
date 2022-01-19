@@ -1,4 +1,4 @@
-    package com.l4ikaa.a24;
+    package warrick.l4ika.aaa24;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SelectScreen extends AppCompatActivity {
+import com.l4ikaa.a24.R;
+
+    public class SelectScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

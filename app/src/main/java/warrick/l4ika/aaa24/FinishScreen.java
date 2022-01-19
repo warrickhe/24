@@ -1,4 +1,4 @@
-package com.l4ikaa.a24;
+package warrick.l4ika.aaa24;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.l4ikaa.a24.R;
 
 public class FinishScreen extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.l4ikaa.a24;
+package warrick.l4ika.aaa24;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +8,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.l4ikaa.a24.R;
 
 public class Test extends AppCompatActivity {
     private static final Integer[] NUMBERS = {1,2,3,4,5,6,7,8,9,10,11,12,13};

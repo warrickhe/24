@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FinishScreen">
+    tools:context="warrick.l4ika.aaa24.FinishScreen">
 
     <Button
         android:id="@+id/retry"

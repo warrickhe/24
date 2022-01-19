@@ -1,4 +1,4 @@
-package com.l4ikaa.a24;
+package warrick.l4ika.aaa24;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,13 +13,16 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Standard extends AppCompatActivity {
+import com.l4ikaa.a24.R;
+
+public class Hard extends AppCompatActivity {
     private boolean numSelected = false;
     private boolean opSelected = false;
     private Button[] opButtons;
     private Button[] numButtons;
     private int[] numbers;
     private int a,b,c,d;
+    private boolean isImpossible;
     private int selectedOp = 0;
     private int selectedNum = 0;
     private int numVisible = 4;
@@ -36,7 +39,7 @@ public class Standard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_standard);
+        setContentView(R.layout.activity_hard);
         opButtons = new Button[4];
         numButtons = new Button[4];
         opButtons[0] = (Button) findViewById(R.id.plusOpButton);
@@ -106,7 +109,7 @@ public class Standard extends AppCompatActivity {
         timeText = (TextView) findViewById(R.id.timeTV);
         scoreText = (TextView) findViewById(R.id.scoreTV);
         scoreText.setText("Score: "+score);
-        pref = this.getSharedPreferences("standardHighScore", Context.MODE_PRIVATE);
+        pref = this.getSharedPreferences("hardHighScore", Context.MODE_PRIVATE);
         editor = pref.edit();
 
         Button resetButton = (Button) findViewById(R.id.reset);
@@ -125,6 +128,13 @@ public class Standard extends AppCompatActivity {
                 scoreText.setText("Score: "+score);
             }
         });
+        Button impossibleButton = (Button) findViewById(R.id.impossible);
+        impossibleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hitImpossible();
+            }
+        });
         startTimer();
     }
 
@@ -134,8 +144,8 @@ public class Standard extends AppCompatActivity {
                 timeText.setText("Time: "+(int)(millisUntilFinished/1000));
             }
             public void onFinish() {
-                highScore = Math.max(score,pref.getFloat("standardHighScore", 0));
-                editor.putFloat("standardHighScore",(float)highScore);
+                highScore = Math.max(score,pref.getFloat("hardHighScore", 0));
+                editor.putFloat("hardHighScore",(float)highScore);
                 editor.commit();
                 goFinishScreen();
             }
@@ -147,7 +157,7 @@ public class Standard extends AppCompatActivity {
         Intent intent = new Intent(this, FinishScreen.class);
         intent.putExtra("highScore",highScore+"");
         intent.putExtra("score",score+"");
-        intent.putExtra("mode","Standard");
+        intent.putExtra("mode","Hard");
         startActivity(intent);
         finish();
     }
@@ -281,13 +291,7 @@ public class Standard extends AppCompatActivity {
         num3 = (int) (13*Math.random())+1;
         num4 = (int) (13*Math.random())+1;
         Solver question = new Solver(num1,num2,num3,num4);
-        while ( question.isImpossible() ){
-            num1 = (int) (13*Math.random()+1);
-            num2 = (int) (13*Math.random()+1);
-            num3 = (int) (13*Math.random()+1);
-            num4 = (int) (13*Math.random()+1);
-            question = new Solver(num1,num2,num3,num4);
-        }
+        isImpossible = question.isImpossible();
         a = num1;
         b = num2;
         c = num3;
@@ -301,14 +305,36 @@ public class Standard extends AppCompatActivity {
         numButtons[2].setText(""+num3);
         numButtons[3].setText(""+num4);
     }
+
+    private void hitImpossible(){
+        if ( isImpossible ){
+            score++;
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run(){
+                    hardReset();
+                }
+            }, 500);
+            scoreText.setText("Score: "+score);
+            return;
+        } else {
+            score--;
+            hardReset();
+            scoreText.setText("Score: "+score);
+        }
+    }
+
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
+        timer.cancel();
         finish();
     }
+
     @Override
     public void onPause(){
         timer.cancel();
         finish();
         super.onPause();
     }
+
 }

@@ -1,4 +1,4 @@
-package com.l4ikaa.a24;
+package warrick.l4ika.aaa24;
 
 import org.junit.Test;
 
